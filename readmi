@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#instalar fastapi
+#pip install fastapi uvicorn
+
+#activar entorno virtual
+#source venv/Scripts/activate
+
+#instalar ngrok
+#pip install pyngrok
+
+#ejecutar ngrok
+#uvicorn main:app --port 8080
+#start ngrok http port 8080
+
+# url para cualquier dispositivo
+# https://f5b9-200-12-169-184.ngrok-free.app/
+
+# url local
+# http://127.0.0.1:8080
+
