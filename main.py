@@ -10,10 +10,12 @@ import os #para interactuar con el sistema operativo
 load_dotenv()
 
 # Valida que las claves esten configuradas en el entorno
-REQUIRED_KEYS = 'AIzaSyBst5Xo9-k-PlELiTDiCoP11CP908OO-pI' #Lista de claves requeridas
-for key in REQUIRED_KEYS:
-    if not os.getenv(key): #En el caso de que no este configurada una clase
-        raise EnvironmentError(f"La clave {key} es requerida, pero no está configurada.") #Error si no hay clave
+REQUIRED_KEYS = [AIzaSyBst5Xo9-k-PlELiTDiCoP11CP908OO-pI] #Lista de claves requeridas
+os.getenv(REQUIRED_KEYS)
+
+# for key in REQUIRED_KEYS:
+#     if not os.getenv(key): #En el caso de que no este configurada una clase
+#         raise EnvironmentError(f"La clave {key} es requerida, pero no está configurada.") #Error si no hay clave
 
 # Configurar Gemini con la clave del entorno
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
