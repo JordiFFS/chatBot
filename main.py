@@ -10,7 +10,7 @@ import os #para interactuar con el sistema operativo
 load_dotenv()
 
 # Valida que las claves esten configuradas en el entorno
-REQUIRED_KEYS = [AIzaSyBst5Xo9-k-PlELiTDiCoP11CP908OO-pI] #Lista de claves requeridas
+REQUIRED_KEYS = ["GEMINI_API_KEY"] #Lista de claves requeridas
 os.getenv(REQUIRED_KEYS)
 
 # for key in REQUIRED_KEYS:
