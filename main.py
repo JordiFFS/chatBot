@@ -10,15 +10,14 @@ import os #para interactuar con el sistema operativo
 load_dotenv()
 
 # Valida que las claves esten configuradas en el entorno
-REQUIRED_KEY = "GEMINI_API_KEY"
+REQUIRED_KEYS = ["GEMINI_API_KEY"] #Lista de claves requeridas
+for key in REQUIRED_KEYS:
+    if not os.getenv(key): #En el caso de que no este configurada una clase
+        raise EnvironmentError(f"La clave {key} es requerida, pero no está configurada.") #Error si no hay clave
 
 # Configurar Gemini con la clave del entorno
-api_key = os.getenv(REQUIRED_KEY)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-if not api_key:
-    raise EnvironmentError(f"La clave requerida {REQUIRED_KEY} no está configurada.")
-
-genai.configure(api_key=api_key)
 app = FastAPI() #Crear una instancia de FastAPI
 
 # Agregar middleware CORS para permitir todos los orígenes
