@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware #para permitir el acceso a la
 from dotenv import load_dotenv #para cargar las variables de entorno desde el archivo .env
 import google.generativeai as genai #para interactuar con la API de Generative AI
 import os #para interactuar con el sistema operativo
+import uvicorn
 
 # Cargar las variables del entorno del archivo .env
 load_dotenv()
@@ -190,3 +191,9 @@ async def websocket_endpoint(websocket: WebSocket):
         print("Cliente desconectado")
     except Exception as e: # Manejo de otros errores
         print(f"Error inesperado en WebSocket: {e}")
+
+
+# Iniciar el servidor con configuraciones dinámicas
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
